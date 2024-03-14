@@ -218,8 +218,49 @@
 
     //Filtrar pacientes ISAPRES dental
 
-    const dentalIsapre = dental.filter((prevision) => prevision === "FONASA");
-    console.log(dentalIsapre);
+    const dentalIsapre = dental.filter((item) => {
+      return item.prevision == "ISAPRE";
+    });
+
+    const pacientesDentalIsapre = dentalIsapre.map((item) => {
+      return (
+        "Paciente: " +
+        item.paciente +
+        " | " +
+        " Prevision: " +
+        item.prevision +
+        "<br>"
+      );
+    });
+
+    document.write(
+      `<h2>Pacientes dentales en ISAPRE:</h2>${pacientesDentalIsapre.join(
+        " "
+      )} <br>`
+    );
+
+    //Filtrar pacientes FONASA traumatología
+
+    const traumaFonasa = traumatologia.filter((item) => {
+      return item.prevision == "FONASA";
+    });
+
+    const pacientesTraumaFonasa = traumaFonasa.map((item) => {
+      return (
+        "Paciente: " +
+        item.paciente +
+        " | " +
+        " Prevision: " +
+        item.prevision +
+        "<br>"
+      );
+    });
+
+    document.write(
+      `<h2>Pacientes traumatologia en FONASA:</h2>${pacientesTraumaFonasa.join(
+        " "
+      )} <br>`
+    );
     //Agregar código para el desafio 2 aquí
 
     document.write(
